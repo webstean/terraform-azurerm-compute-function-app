@@ -21,7 +21,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto     = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
@@ -89,7 +89,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto     = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
@@ -157,7 +157,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto     = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
