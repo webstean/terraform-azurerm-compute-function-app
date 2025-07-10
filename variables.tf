@@ -1,6 +1,6 @@
 variable "dns_zone_name" {
-  type        = string
-  sensitive   = false
+  type      = string
+  sensitive = false
   #default     = "example.com"
   description = <<DESCRIPTION
 This variable provides the name public DNS zones to of an existing controls the whether or not Microsoft telemetry is enabled for the AVM modules, that modeule will call.
@@ -32,10 +32,10 @@ This module only support user-assigned managed identities, not system-assigned m
 CONTENT
   type        = string
   validation {
-    condition = can(regex("^/subscriptions/[a-f0-9-]+/resourceGroups/[^/]+/providers/Microsoft\\.ManagedIdentity/userAssignedIdentities/[^/]+$", var.user_managed_id))
+    condition     = can(regex("^/subscriptions/[a-f0-9-]+/resourceGroups/[^/]+/providers/Microsoft\\.ManagedIdentity/userAssignedIdentities/[^/]+$", var.user_managed_id))
     error_message = "The managed identity ID must be a valid ARM ID of a user-assigned identity."
   }
-    validation {
+  validation {
     condition     = length(var.user_managed_id) > 0
     error_message = "The variable location cannot be blank."
   }
@@ -50,7 +50,7 @@ Therefore you'll tpyically see that reosurce creates won't give high-level privi
 CONTENT
   type        = string
   validation {
-    condition = can(regex("^([a-fA-F0-9]{8}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{12})$", var.entra_group_id))
+    condition     = can(regex("^([a-fA-F0-9]{8}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{12})$", var.entra_group_id))
     error_message = "The group ID must be a valid UUID (e.g., 3c318d10-76b5-4c4b-8c8d-5b56e3abf44d)."
   }
   validation {
@@ -101,7 +101,7 @@ CONTENT
   }
 }
 
-variable "project_name" { 
+variable "project_name" {
   description = <<CONTENT
 (Required) project_name (freeform) is used in special cases, where you want to deploy two or more applications, with the same name in the same landing zone.
 This would be usualy, typically you would only deploy the application once per landing zone, once in UAT, once in DEV and once in SIT etc..
@@ -314,7 +314,7 @@ Avoid using exotic characters, so that it can be used in all sorts of places, li
 CONTENT
   sensitive   = false
   type        = string
-  default = "org"
+  default     = "org"
   validation {
     error_message = "The variable org_shortname cannot be blank/empty string."
     condition     = length(var.org_shortname) > 0
