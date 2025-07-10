@@ -2,7 +2,7 @@
 ## github_repository.github-template-create.${each.key}.name
 
 data "azurerm_resource_group" "this" {
-  name                = var.resource_group_name
+  name = var.resource_group_name
 }
 
 resource "azurerm_storage_account" "functionapp" {
@@ -22,12 +22,12 @@ resource "azurerm_storage_account" "functionapp" {
 
   network_rules {
     default_action = var.pii_data == "yes" || var.phi_data == "yes" ? "Deny" : "Allow"
-    bypass         = var.pii_data == "yes" || var.phi_data == "yes" ?  null  : ["AzureServices"]
+    bypass         = var.pii_data == "yes" || var.phi_data == "yes" ? null : ["AzureServices"]
   }
 }
 
 locals {
-  functionapp_sku                 = "FC1" ##"S1" ## "P0v3" ## PremiumV3
+  functionapp_sku                 = "FC1"         ##"S1" ## "P0v3" ## PremiumV3
   functionapp_type                = "functionapp" ## Possible values are functionapp, webapp and logicapp
   functionapp_fc1_runtime_name    = "python"      ## Possible values are node, dotnet-isolated, powershell, python, java
   functionapp_fc1_runtime_version = "3.11"        ## For Python, Possible values are 3.10, 3.11
