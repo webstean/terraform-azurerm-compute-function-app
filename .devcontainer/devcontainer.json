@@ -1,0 +1,89 @@
+{
+    "name": "Azure Terraform (webstean/terraform-azurerm-compute-function-app)",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "hostRequirements": {
+        "cpus": 4,
+        "memory": "12gb",
+        "storage": "64gb"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "latest",
+            "installTFsec": "true",
+            "installTerraformDocs": "true"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/powershell:1": {
+            "version": "latest"
+        }
+    },
+    "settings": {
+        "[terraform]": {
+          "editor.defaultFormatter": "hashicorp.terraform"
+        },
+        "[tfvars]": {
+          "editor.defaultFormatter": "hashicorp.terraform"
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.inlineSuggest.enabled": true,
+        "editor.linkedEditing": true,
+        "editor.multiCursorModifier": "alt",
+        "editor.renderControlCharacters": true,
+        "editor.renderWhitespace": "all",
+        "editor.rulers": [
+          {
+            "color": "#A5FF90",
+            "column": 80
+          },
+          {
+            "color": "#FF628C",
+            "column": 100
+          }
+        ],
+        "editor.stickyScroll.enabled": true,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "on",
+        "editor.tabSize": 2,
+        "files.associations": {
+          "*.sh.tmpl": "shellscript"
+        },
+        "files.trimTrailingWhitespace": true,
+        "terraform.languageServer": {
+          "enabled": true
+        }
+    },
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ]
+        }
+    },
+    "extensions": [
+        "HashiCorp.terraform",
+        "ms-azuretools.vscode-azureterraform",
+        "ms-vscode.powershell",
+        "ms-vscode.azurecli",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-azuretools.vscode-azurefunctions",
+        "redhat.vscode-yaml",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+    ],
+    "unwantedRecommendations": [
+        "eamodio.gitlens",
+        "ms-vscode.azure-account",
+        "ms-vscode.remote-server",
+        "devcenter.ms-devbox"
+    ],
+    "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version"
+}
