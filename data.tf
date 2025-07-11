@@ -17,6 +17,62 @@ locals {
 }
 */
 
+locals {
+  default_domain         = data.azuread_domains.default.domains[0].domain_name
+  zone_balancing_enabled = var.sku_name == "premium" || var.sku_name == "isolated" ? true : false
+  public_access_enabled  = var.data_pii == "yes" || var.data_pii == "yes" ? false : true
+  storage_endpoints              = toset(["blob", "queue", "table", "file"])
+}
+
+data "azurerm_role_definition" "owner" {
+  name = "Owner"
+}
+data "azurerm_role_definition" "contributor" {
+  name = "Contributor"
+}
+data "azurerm_role_definition" "reader_and_access" {
+  name = "Reader and Data Access"
+}
+data "azurerm_role_definition" "storage_defender" {
+  name = "Defender for Storage Data Scanner"
+}
+data "azurerm_role_definition" "blob_contributor" {
+  name = "Storage Blob Data Contributor"
+}
+data "azurerm_role_definition" "blob_owner" {
+  name = "Storage Blob Data Owner"
+}
+data "azurerm_role_definition" "blob_reader" {
+  name = "Storage Blob Data Reader"
+}
+data "azurerm_role_definition" "file_contributor" {
+  name = "Storage File Data Privileged Contributor"
+}
+data "azurerm_role_definition" "smb_contributor" {
+  name = "Storage File Data SMB Share Elevated Contributor"
+}
+data "azurerm_role_definition" "smb_reader" {
+  name = "Storage File Data SMB Share Reader"
+}
+data "azurerm_role_definition" "queue_contributor" {
+  name = "Storage Queue Data Contributor"
+}
+data "azurerm_role_definition" "queue_processor" {
+  name = "Storage Queue Data Message Processor"
+}
+data "azurerm_role_definition" "queue_sender" {
+  name = "Storage Queue Data Message Sender"
+}
+data "azurerm_role_definition" "queue_reader" {
+  name = "Storage Queue Data Reader"
+}
+data "azurerm_role_definition" "table_contributor" {
+  name = "Storage Table Data Contributor"
+}
+data "azurerm_role_definition" "table_reader" {
+  name = "Storage Table Data Reader"
+}
+
 /*
 ## list of all users - handy, but slow things down
 data "azuread_users" "all-users" {
