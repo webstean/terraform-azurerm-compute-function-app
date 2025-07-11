@@ -50,7 +50,6 @@ module "function_app" {
   ## Identity
   entra_group_id      = azuread_group.cloud_operators.id
   user_managed_id     = module.application-landing-zone.user_managed_id
-  resource_group_name = module.application-landing-zone.resource_group_name // use the one supplied by the landing zone, or create you own
   
   ## Naming
   landing_zone_name   = module.application-landing-zone.landing_zone_name
@@ -65,7 +64,7 @@ module "function_app" {
   ## Location
   subscription_id     = module.application-landing-zone.subscription_id
   location_key        = module.application-landing-zone-name.location_key
-  resource_group_name = module.application-landing-zone.resource_group_name
+  resource_group_name = module.application-landing-zone.resource_group_name // use the one supplied by the landing zone, or create you own
 
   ## Tags
   owner               = module.application-landing-zone.owner
