@@ -43,7 +43,7 @@ gh release create v0.0.2 --title "v0.0.2" --notes "New release"
 
 Example:
 ```hcl
-module "webstean-terraform-azurerm-compute-function-app" {
+module "function_app" {
   source  = "webstean/compute-function-app/azurerm"
   version = "~>0.0, < 1.0"
 
