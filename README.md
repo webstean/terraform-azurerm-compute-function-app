@@ -84,6 +84,7 @@ module "function_app" {
 | <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | ~>1.0, < 2.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>4.0, < 5.0 |
 | <a name="requirement_github"></a> [github](#requirement\_github) | ~>6.0, < 7.0 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | ~>2.0, < 3.0 |
 | <a name="requirement_powerplatform"></a> [powerplatform](#requirement\_powerplatform) | ~>3.0, < 4.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~>3.0, < 4.0 |
 | <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~>4.0, < 5.0 |
