@@ -27,30 +27,30 @@ terraform {
       source  = "azure/azapi"
       version = "~> 2.0, < 3.0"
     }
-    github = {
-      ## GitHub provider
-      source  = "integrations/github"
-      version = "~>6.0, < 7.0"
-    }
-    azuredevops = {
-      ## Azure DevOps
-      source  = "microsoft/azuredevops"
-      version = "~>1.0, < 2.0"
-    }
-    tls = {
-      ## working with Transport Layer Security keys and certificates
-      source  = "hashicorp/tls"
-      version = "~>4.0, < 5.0"
-    }
-    powerplatform = {
-      source  = "microsoft/power-platform"
-      version = "~>3.0, < 4.0"
-    }
-    acme = {
-      ## Letsencrypt certs etc..
-      source  = "vancluever/acme"
-      version = "~>2.0, < 3.0"
-    }
+#    github = {
+#      ## GitHub provider
+#      source  = "integrations/github"
+#      version = "~>6.0, < 7.0"
+#    }
+#    azuredevops = {
+#      ## Azure DevOps
+#      source  = "microsoft/azuredevops"
+#      version = "~>1.0, < 2.0"
+#    }
+#    tls = {
+#      ## working with Transport Layer Security keys and certificates
+#      source  = "hashicorp/tls"
+#      version = "~>4.0, < 5.0"
+#    }
+#    powerplatform = {
+#      source  = "microsoft/power-platform"
+#      version = "~>3.0, < 4.0"
+#    }
+#    acme = {
+#      ## Letsencrypt certs etc..
+#      source  = "vancluever/acme"
+#      version = "~>2.0, < 3.0"
+#    }
     random = {
       ## Random provider
       source  = "hashicorp/random"
