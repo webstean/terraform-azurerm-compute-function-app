@@ -43,7 +43,7 @@ module "application-landing-zone" {
 
 }
 
-module "webstean-terraform-azurerm-compute-function-app" {
+module "function_app" {
   source  = "webstean/compute-function-app/azurerm"
   version = "~>0.0, < 1.0"
 
