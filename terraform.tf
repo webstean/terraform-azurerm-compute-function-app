@@ -56,6 +56,11 @@ terraform {
       source  = "hashicorp/random"
       version = "~>3.0, < 4.0"
     }
+    local = {
+      ## local files provider
+      source  = "hashicorp/local"
+      version = "~>2.0, < 3.0"
+    }
   }
 }
 
@@ -157,3 +162,5 @@ provider "random" {
 provider "tls" {
   ## Configuration options
 }
+
+provider "local" {}
