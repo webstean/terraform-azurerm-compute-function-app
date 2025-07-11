@@ -77,17 +77,12 @@ module "function_app" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.0, < 2.0 |
-| <a name="requirement_acme"></a> [acme](#requirement\_acme) | ~>2.0, < 3.0 |
 | <a name="requirement_alz"></a> [alz](#requirement\_alz) | ~>0.0, < 1.0 |
 | <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 2.0, < 3.0 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 3.0, < 4.0 |
-| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | ~>1.0, < 2.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>4.0, < 5.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | ~>6.0, < 7.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | ~>2.0, < 3.0 |
-| <a name="requirement_powerplatform"></a> [powerplatform](#requirement\_powerplatform) | ~>3.0, < 4.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~>3.0, < 4.0 |
-| <a name="requirement_tls"></a> [tls](#requirement\_tls) | ~>4.0, < 5.0 |
 
 ## Resources
 
