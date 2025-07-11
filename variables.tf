@@ -285,7 +285,6 @@ This is intended to be a human readable name, so that it can be used in the Azur
 CONTENT
   sensitive   = false
   type        = string
-  # default = "unknown"
   validation {
     error_message = "The variable org_fullname cannot be blank/empty string."
     condition     = length(var.org_fullname) > 0
@@ -310,7 +309,6 @@ Avoid using exotic characters, so that it can be used in all sorts of places, li
 CONTENT
   sensitive   = false
   type        = string
-  default     = "org"
   validation {
     error_message = "The variable org_shortname cannot be blank/empty string."
     condition     = length(var.org_shortname) > 0
