@@ -5,25 +5,31 @@ data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
 
-resource "azurerm_storage_account" "functionapp" {
 
-  name                     = module.naming-application.storage_account.name_unique
-  account_replication_type = "LRS"
-  account_tier             = var.sku_name == "premium" || var.sku_name == "isolated" ? "Premium" : "Standard"
-  resource_group_name      = data.azurerm_resource_group.this.name
-  location                 = local.regions[each.key].location
+module "storage-functionapp" {
+  source  = "webstean/storage-account/azurerm"
+  version = "~>0.0, < 1.0"
 
-  identity {
-    type = "UserAssigned"
-    identity_ids = [
-      var.user_managed_id
-    ]
-  }
+  ## identity
+  user_managed_id     = var.application_landing_zone.user_managed_id
+  entra_group_id      = var.azuread_group.cloud_operators.id
+  ## naming
+  resource_group_name = data.azurerm_resource_group.this.name
+  application_name    = var.application_name
+  ## sizing
+  sku_name            = "free" ## other options are: basic, standard, premium or isolated
+  size_name           = "small" ## other options are: medium, large or x-large
+  location_key        = "australiaeast" ## other options are: australiasoutheast, australiacentral
+  private_endpoints_always_deployed = false ## other option is: true
+  ## these are just use for the tags to be applied to each resource
+  owner               = "tbd" ## freeform text, but should be a person or team, email address is ideal
+  cost_centre         = "unknown" ## from the accountants, its the owner's cost centre
+  ##
+  subscription_id = data.azurerm_client_config.current.subscription_id
 
-  network_rules {
-    default_action = var.pii_data == "yes" || var.phi_data == "yes" ? "Deny" : "Allow"
-    bypass         = var.pii_data == "yes" || var.phi_data == "yes" ? null : ["AzureServices"]
-  }
+  ## Specific to Azure Functions    
+  storage_type = "blob"
+  storage_replication_type = "LRS"
 }
 
 locals {
@@ -49,17 +55,15 @@ resource "azurerm_dns_cname_record" "functionapp" {
 */
 
 resource "azurerm_storage_container" "functionapp" {
-  for_each = azurerm_storage_account.functionapp
-
   name               = var.application_name
-  storage_account_id = each.value.id
+  storage_account_id = module.storage-functionapp.resource_id
 }
 resource "azurerm_role_assignment" "functionapp-storage" {
   for_each = azurerm_storage_container.functionapp
 
-  principal_id         = user_managed_id
-  scope                = each.value.id
-  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = var.user_managed_id
+  scope                = module.storage-functionapp.resource_id
+  role_definition_name = data.azurerm_role_definition.blob_contributor.name
 }
 
 module "functionapp_appservice" {
