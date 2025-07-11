@@ -3,13 +3,9 @@ variable "dns_zone_name" {
   sensitive = false
   #default     = "example.com"
   description = <<DESCRIPTION
-This variable provides the name public DNS zones to of an existing controls the whether or not Microsoft telemetry is enabled for the AVM modules, that modeule will call.
-For more information see https://aka.ms/avm/telemetryinfo.
-If it is set to false, then no telemetry will be collected.
-The default is true.
+This variable provides the name public DNS zones of the landing zone
 DESCRIPTION
 }
-
 
 variable "enable_telemetry" {
   type        = bool
