@@ -17,11 +17,6 @@ locals {
 }
 */
 
-locals {
-  zone_balancing_enabled = var.sku_name == "premium" || var.sku_name == "isolated" ? true : false
-  public_access_enabled  = var.pii_data == "yes" || var.phi_data == "yes" ? false : true
-}
-
 /*
 ## list of all users - handy, but slow things down
 data "azuread_users" "all-users" {
