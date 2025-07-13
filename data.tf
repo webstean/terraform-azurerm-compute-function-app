@@ -5,7 +5,7 @@ data "azurerm_subscriptions" "current" {}
 ## azuread
 data "azuread_client_config" "current" {}
 ## azapi
-data "azapi_client_config" "current" {}
+#data "azapi_client_config" "current" {}
 
 /*
 locals {
@@ -21,7 +21,7 @@ locals {
   default_domain         = data.azuread_domains.default.domains[0].domain_name
   zone_balancing_enabled = var.sku_name == "premium" || var.sku_name == "isolated" ? true : false
   public_access_enabled  = var.data_pii == "yes" || var.data_pii == "yes" ? false : true
-  storage_endpoints      = toset(["blob", "queue", "table", "file"])
+  storage_endpoints              = toset(["blob", "queue", "table", "file"])
 }
 
 data "azurerm_role_definition" "owner" {
