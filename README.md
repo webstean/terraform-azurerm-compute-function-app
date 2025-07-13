@@ -93,7 +93,6 @@ module "function_app" {
 | [azurerm_role_assignment.functionapp_python](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_storage_container.functionapp](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
 | [random_string.naming_seed](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
-| [azapi_client_config.current](https://registry.terraform.io/providers/hashicorp/azapi/latest/docs/data-sources/client_config) | data source |
 | [azuread_application_published_app_ids.well_known](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application_published_app_ids) | data source |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 | [azuread_domains.admin](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
