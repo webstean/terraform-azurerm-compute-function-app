@@ -6,11 +6,11 @@ terraform {
   required_version = "~>1.0, < 2.0"
 
   required_providers {
-    #    alz = {
-    #      ## Azure Landing Zones (ALZ) - generate data to allow you to simplify provisioning of your ALZ configuration.
-    #      source  = "Azure/alz"
-    #      version = "~>0.0, < 1.0"
-    #    }
+#    alz = {
+#      ## Azure Landing Zones (ALZ) - generate data to allow you to simplify provisioning of your ALZ configuration.
+#      source  = "Azure/alz"
+#      version = "~>0.0, < 1.0"
+#    }
     azurerm = {
       ## Azure resource provider
       source  = "hashicorp/azurerm"
@@ -27,30 +27,30 @@ terraform {
       source  = "azure/azapi"
       version = "~> 2.0, < 3.0"
     }
-    #    github = {
-    #      ## GitHub provider
-    #      source  = "integrations/github"
-    #      version = "~>6.0, < 7.0"
-    #    }
-    #    azuredevops = {
-    #      ## Azure DevOps
-    #      source  = "microsoft/azuredevops"
-    #      version = "~>1.0, < 2.0"
-    #    }
-    #    tls = {
-    #      ## working with Transport Layer Security keys and certificates
-    #      source  = "hashicorp/tls"
-    #      version = "~>4.0, < 5.0"
-    #    }
-    #    powerplatform = {
-    #      source  = "microsoft/power-platform"
-    #      version = "~>3.0, < 4.0"
-    #    }
-    #    acme = {
-    #      ## Letsencrypt certs etc..
-    #      source  = "vancluever/acme"
-    #      version = "~>2.0, < 3.0"
-    #    }
+#    github = {
+#      ## GitHub provider
+#      source  = "integrations/github"
+#      version = "~>6.0, < 7.0"
+#    }
+#    azuredevops = {
+#      ## Azure DevOps
+#      source  = "microsoft/azuredevops"
+#      version = "~>1.0, < 2.0"
+#    }
+#    tls = {
+#      ## working with Transport Layer Security keys and certificates
+#      source  = "hashicorp/tls"
+#      version = "~>4.0, < 5.0"
+#    }
+#    powerplatform = {
+#      source  = "microsoft/power-platform"
+#      version = "~>3.0, < 4.0"
+#    }
+#    acme = {
+#      ## Letsencrypt certs etc..
+#      source  = "vancluever/acme"
+#      version = "~>2.0, < 3.0"
+#    }
     random = {
       ## Random provider
       source  = "hashicorp/random"
@@ -103,6 +103,7 @@ provider "azurerm" {
 
 # Configure the Microsoft Azure Provider
 provider "azuread" {
+  subscription_id                 = var.subscription_id
   use_oidc                  = true
   use_aks_workload_identity = false
   use_msi                   = false
@@ -111,6 +112,7 @@ provider "azuread" {
 
 provider "azapi" {
   ## Configuration options
+  subscription_id                 = var.subscription_id
   use_oidc                  = true
   use_aks_workload_identity = false
   use_msi                   = false
