@@ -77,7 +77,6 @@ module "function_app" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~>1.0, < 2.0 |
-| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 2.0, < 3.0 |
 | <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 3.0, < 4.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~>4.0, < 5.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | ~>2.0, < 3.0 |
@@ -94,7 +93,7 @@ module "function_app" {
 | [azurerm_role_assignment.functionapp_python](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_storage_container.functionapp](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
 | [random_string.naming_seed](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
-| [azapi_client_config.current](https://registry.terraform.io/providers/azure/azapi/latest/docs/data-sources/client_config) | data source |
+| [azapi_client_config.current](https://registry.terraform.io/providers/hashicorp/azapi/latest/docs/data-sources/client_config) | data source |
 | [azuread_application_published_app_ids.well_known](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application_published_app_ids) | data source |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
 | [azuread_domains.admin](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
