@@ -25,6 +25,7 @@ locals {
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
+      edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia Southeast"
       location                           = "australiasoutheast"
       location_shortname                 = "ase"
@@ -93,6 +94,7 @@ locals {
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
+      edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia East"
       location                           = "australiaeast"
       location_shortname                 = "ae"
@@ -161,6 +163,7 @@ locals {
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
+      edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia Central"
       location                           = "australiacentral"
       location_shortname                 = "acl"
@@ -231,6 +234,7 @@ locals {
       immutable_backups_enabled = false
 
       // Offical Azure location (region)
+      edge_zone                          = null
       long_name          = "(Asia Pacific) Australia Central 2"
       location           = "australiacentral2"
       location_shortname = "acl2"
