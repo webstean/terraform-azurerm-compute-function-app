@@ -250,6 +250,23 @@ CONTENT
   }
 }
 
+variable "private_endpoints_subnet_name" {
+  description = <<CONTENT
+(Required) private_endpoints_subnet_name (string) the name of the Azure VNet subnet, you want the Private Endpoint created in
+CONTENT
+  sensitive   = false
+  type        = string
+  default     = null
+}
+variable "private_endpoints_vnet_name" {
+  description = <<CONTENT
+(Required) private_endpoints_subnet_name (string) the name of the Azure VNet subnet, you want the Private Endpoint created in
+CONTENT
+  sensitive   = false
+  type        = string
+  default     = null
+}
+
 variable "owner" {
   description = <<CONTENT
 The name (preferably email address) of the resource owner for contacting in a disaster or seeking guiandance.
