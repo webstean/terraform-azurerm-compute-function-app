@@ -14,7 +14,7 @@ This module is intended to be an **example** of how you can use Terraform Azure 
 > This module is **NOT** intended to be used directly. You should fork them and then customise to your own purposes.
 >
 
-> [!INFO]
+> [!NOTE]
 > At the moment, these modules only support deployment into the Australia regions (australiaeast, australiasoutheast, australiacentral)
 > And, they don't support any value for the SKU variable other than "free", this is to avoid the deployment of super expensive resources.
 > Plus, the variable: private_endpoints_always_deployed must be false, to prevent Private Endpoint from being created and costing you money.
