@@ -1,7 +1,7 @@
 {
   "name": "Azure Terraform (${each.value.full_name})",
-  //"image": "mcr.microsoft.com/devcontainers/universal:2"
-  "image": "mcr.microsoft.com/devcontainers/dotnet"
+  "image": "mcr.microsoft.com/devcontainers/universal:2"
+  //"image": "mcr.microsoft.com/devcontainers/dotnet"
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "version": "latest"
