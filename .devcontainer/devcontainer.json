@@ -84,10 +84,7 @@
     "GitHub.copilot-chat"
   ],
   "unwantedRecommendations": [
-    "eamodio.gitlens",
-    "ms-vscode.azure-account",
-    "ms-vscode.remote-server",
-    "devcenter.ms-devbox"
+    "eamodio.gitlens"
   ],
   "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version",
   "postStartCommand": "git pull origin main"
