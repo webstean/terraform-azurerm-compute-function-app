@@ -1,4 +1,5 @@
 ## This is an example of how to use this module
+> ℹ️ To view this document in preview mode, press `Ctrl+Shift+V` or right-click and select **"Open Preview"**.
 
 azuread_group "cloud_operators" {
   display_name     = "Landing Zone Operators"
