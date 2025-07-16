@@ -17,9 +17,9 @@
       "version": "latest"
     }
   },
-  "mounts": [
-    "source=${env:HOME}/.azure,target=/root/.azure,type=bind"
-  ],
+//  "mounts": [
+//    "source=${env:HOME}/.azure,target=/root/.azure,type=bind"
+//  ],
   "settings": {
     "[terraform]": {
       "editor.defaultFormatter": "hashicorp.terraform",
