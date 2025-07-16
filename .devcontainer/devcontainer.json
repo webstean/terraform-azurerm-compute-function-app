@@ -86,4 +86,6 @@
         "devcenter.ms-devbox"
     ],
     "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version"
+    ##"postCreateCommand": "cd tests && go mod init $\{localWorkspaceFolderBasename\} || true",
+	  ##"postStartCommand": "pre-commit install && tflint --init && tfswitch && cd tests && go mod tidy",
 }
