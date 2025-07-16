@@ -1,0 +1,31 @@
+name: 'JSON - File Check'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  json-check:
+    name: 'JSON Check'
+    strategy:
+      matrix:
+        ## runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.runs-on }}
+
+    steps:
+      ## Check if runner is Linux, exit if it isn't
+      - name: Check Runner is Linux
+        if: runner.os != 'Linux'
+        run: |
+          echo "The operating system on the runner is not Linux, it's $RUNNER_OS."
+          exit 1
+        continue-on-error: false
+
+      - name: Check files
+        run: |
+          jq empty .devcontainer/devcontainer.json
+          jq empty renovate.json
+          
