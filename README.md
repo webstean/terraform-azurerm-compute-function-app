@@ -2,11 +2,11 @@
 # Andrew's Terraform module for creating an Azure Function App
 Function as a Service (FaaS) with Azure, you'll need to specify runtime, such as support python, etc.. The default is "powershell"
 
-[GitHub Repository - https://github.com/webstean/terraform-azurerm-compute-function-app](https://github.com/webstean/terraform-azurerm-compute-function-app)<br>
-[Terraform Registry for this module](https://registry.terraform.io/modules/webstean/terraform-azurerm-compute-function-app/azurerm/latest)<br>
-[Terraform Registry Home - other modules](https://registry.terraform.io/namespaces/webstean)<br>
+[GitHub Repository - https://github.com/webstean/terraform-azurerm-compute-function-app](https://github.com/webstean/terraform-azurerm-compute-function-app)
+[Terraform Registry for this module](https://registry.terraform.io/modules/webstean/terraform-azurerm-compute-function-app/azurerm/latest)
+[Terraform Registry Home - other modules](https://registry.terraform.io/namespaces/webstean)
 
-This module is intended as an **example** of how you can use Terraform Azure modules in a enterprise like environment.
+This module is intended to be an **example** of how you can use Terraform Azure modules in a enterprise like environment.
 
 > [!IMPORTANT]
 > **These module is not intended to be used directly.** You should fork them and then customise to your own purposes.
