@@ -11,20 +11,22 @@ Function as a Service (FaaS) with Azure, you'll need to specify runtime, such as
 This module is intended to be an **example** of how you can use Terraform Azure modules in a enterprise like environment.
 
 > [!IMPORTANT]
-> **These module is not intended to be used directly.** You should fork them and then customise to your own purposes.
+> This module is **NOT** intended to be used directly. You should fork them and then customise to your own purposes.
 >
+
+> [!INFO]
 > At the moment, these modules only support deployment into the Australia regions (australiaeast, australiasoutheast, australiacentral)
 > And, they don't support any value for the SKU variable other than "free", this is to avoid the deployment of super expensive resources.
 > Plus, the variable: private\_endpoints\_always\_deployed must be false, to prevent Private Endpoint from being created and costing you money.
 >
 > You'll need to fork and customise files like region.tf, main.tf, variables.tf and redeploy into your own Terraform repository (public or private)
 
-This module is ultimately, just boilerplate, validation and some opinions around what the values of varibles like 'sku\_name' match to which particular Azure SKU.
-Although, if you don't like these choices, you can simple edit this module to suit your own needs.
-
 The real work is done by the Microsoft supplied and supported **Azure Verified Modules**. So as things change, you can rely on the Microsoft Azure Verified Modules (AVM) to do the heavy lifting for you and you can just concentre on the high-level.
 
 For more information on **Azure Verified Modules**, please visit the [AVM portal](https://aka.ms/AVM).
+
+This module is ultimately, just boilerplate, validation and some opinions on some of input variables into the Microsoft AVM's should be.
+Although, if you don't like these choices, you can simple edit this module to suit your own needs.
 
 Another intention of this module, is to be permit to be called via the [Azure Deployment Environment via the extensiblity model](https://learn.microsoft.com/en-us/azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=custom-script%2Cterraform-script%2Cprivate-registry&pivots=terraform), although is currently a work in prgoress is not currently supported.
 
@@ -49,23 +51,23 @@ module "function_app" {
   version = "~>0.0, < 1.0"
 
   ## identity
-  user_managed_id     = module.application_landing_zone.user_managed_id
-  entra_group_id      = azuread_group.cloud_operators.id
+  user_managed_id     = module.application_landing_zone.user_managed_id     ## services/applications
+  entra_group_id      = azuread_group.cloud_operators.id                    ## humans/admin users
   ## naming
   resource_group_name = module.application_landing_zone.resource_group_name
   landing_zone_name   = "play"
   project_name        = "main"
   application_name    = "webstean"
   ## sizing
-  sku_name            = "free" ## other options are: basic, standard, premium or isolated
-  size_name           = "small" ## other options are: medium, large or x-large
-  location_key        = "australiaeast" ## other options are: australiasoutheast, australiacentral
+  sku_name            = "free"          ## other options are: basic, standard, premium or isolated
+  size_name           = "small"         ## other options are: medium, large or x-large
+  location_key        = "australiaeast" ## other supported options are: australiasoutheast, australiacentral
   private_endpoints_always_deployed = false ## other option is: true
   ## these are just use for the tags to be applied to each resource
-  owner               = "tbd" ## freeform text, but should be a person or team, email address is ideal
-  cost_centre         = "unknown" ## from the accountants, its the owner's cost centre
+  owner               = "tbd"           ## freeform text, but should be a person or team, email address is ideal
+  cost_centre         = "unknown"       ## from the accountants, its the owner's cost centre
   ##
-  subscription_id = data.azurerm_client_config.current.subscription_id
+  subscription_id     = data.azurerm_client_config.current.subscription_id
 
   ## Specific to Azure Functions    
   runtime            = "python" ## supported runtimes are: python, nodejs, .net, java, powershell, custom. Defaults to powershell
