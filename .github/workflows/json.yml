@@ -26,6 +26,17 @@ jobs:
 
       - name: Check files
         run: |
-          jq empty .devcontainer/devcontainer.json
-          jq empty renovate.json
-          
+          if ! OUTPUT=$(jq empty renovate.json 2>&1); then
+            echo "::error::jq failed to parse renovate.json"
+            echo "$OUTPUT"
+            exit 1
+          else
+            echo "renovate.json is valid ✅"
+          fi
+          if ! OUTPUT=$(jq empty .devcontainer/devcontainer.json 2>&1); then
+            echo "::error::jq failed to parse .devcontainer/devcontainer.json"
+            echo "$OUTPUT"
+            exit 1
+          else
+            echo ".devcontainer/devcontainer.json is valid ✅"
+          fi
