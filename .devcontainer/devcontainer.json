@@ -35,74 +35,76 @@
         "target": "/home/vscode/.azure"
     }
 ],  
-  "settings": {
-    "[terraform]": {
-      "editor.defaultFormatter": "hashicorp.terraform",
-      "editor.formatOnSave": true
-    },
-    "[tfvars]": {
-      "editor.defaultFormatter": "hashicorp.terraform"
-    },
-    "editor.bracketPairColorization.enabled": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": true
-    },
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.guides.bracketPairs": "active",
-    "editor.inlineSuggest.enabled": true,
-    "editor.linkedEditing": true,
-    "editor.multiCursorModifier": "alt",
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [
-      {
-        "color": "#A5FF90",
-        "column": 80
-      },
-      {
-        "color": "#FF628C",
-        "column": 100
-      }
-    ],
-    "editor.stickyScroll.enabled": true,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "on",
-    "editor.tabSize": 2,
-    "extensions.ignoreRecommendations": true,
-    "files.associations": {
-      "*.sh.tmpl": "shellscript"
-    },
-    "files.eol": "\n",
-    "files.autoGuessEncoding": false,
-    "files.trimTrailingWhitespace": true,
-    "terraform.languageServer": {
-      "enabled": true
-    },
-    "json.validate.enable": true,
-    "markdown.updateLinksOnFileMove.enabled": "always"
-  },
   "customizations": {
     "codespaces": {
       "openFiles": ["DEVELOPER.md"]
+    },
+    "vscode": {
+      "settings": {
+        "[terraform]": {
+          "editor.defaultFormatter": "hashicorp.terraform",
+          "editor.formatOnSave": true
+        },
+        "[tfvars]": {
+          "editor.defaultFormatter": "hashicorp.terraform"
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit"
+        },
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.inlineSuggest.enabled": true,
+        "editor.linkedEditing": true,
+        "editor.multiCursorModifier": "alt",
+        "editor.renderControlCharacters": true,
+        "editor.renderWhitespace": "all",
+        "editor.rulers": [
+          {
+            "color": "#A5FF90",
+            "column": 80
+          },
+          {
+            "color": "#FF628C",
+            "column": 100
+          }
+        ],
+        "editor.stickyScroll.enabled": true,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "on",
+        "editor.tabSize": 2,
+        "extensions.ignoreRecommendations": true,
+        "files.associations": {
+          "*.sh.tmpl": "shellscript"
+        },
+        "files.eol": "\n",
+        "files.autoGuessEncoding": false,
+        "files.trimTrailingWhitespace": true,
+        "terraform.languageServer": {
+          "enabled": true
+        },
+        "json.validate.enable": true,
+        "markdown.updateLinksOnFileMove.enabled": "always"
+      },
+      "extensions": [
+        "zarige.jsonlint",
+        "HashiCorp.terraform",
+        "ms-azuretools.vscode-azureterraform",
+        "ms-vscode.powershell",
+        "ms-vscode.azurecli",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-azuretools.vscode-azurefunctions",
+        "redhat.vscode-yaml",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "unwantedRecommendations": [
+        "eamodio.gitlens"
+      ]
     }
   },
-  "extensions": [
-    "JSONLint",
-    "HashiCorp.terraform",
-    "ms-azuretools.vscode-azureterraform",
-    "ms-vscode.powershell",
-    "ms-vscode.azurecli",
-    "ms-azuretools.vscode-azureresourcegroups",
-    "ms-azuretools.vscode-azurefunctions",
-    "redhat.vscode-yaml",
-    "GitHub.copilot",
-    "GitHub.copilot-chat"
-  ],
-  "unwantedRecommendations": [
-    "eamodio.gitlens"
-  ],
   "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
   "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version",
   "postStartCommand": "git pull origin main"
