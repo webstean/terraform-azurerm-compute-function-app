@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## devcontainer needs to be created by docker-compose or dockerfile
+
 EXTENSIONS_FILE="/workspace/.devcontainer/extensions-checksum.txt"
 CURRENT_EXT=$(code --list-extensions --show-versions | sort)
 
