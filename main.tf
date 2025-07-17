@@ -11,24 +11,24 @@ module "storage-functionapp" {
   version = "~>0.0, < 1.0"
 
   ## identity
-  user_managed_id = var.application_landing_zone.user_managed_id
-  entra_group_id  = var.azuread_group.cloud_operators.id
+  user_managed_id     = var.application_landing_zone.user_managed_id
+  entra_group_id      = var.azuread_group.cloud_operators.id
   ## naming
   resource_group_name = data.azurerm_resource_group.this.name
   application_name    = var.application_name
   ## sizing
-  sku_name                          = "free"          ## other options are: basic, standard, premium or isolated
-  size_name                         = "small"         ## other options are: medium, large or x-large
-  location_key                      = "australiaeast" ## other options are: australiasoutheast, australiacentral
-  private_endpoints_always_deployed = false           ## other option is: true
+  sku_name            = "free" ## other options are: basic, standard, premium or isolated
+  size_name           = "small" ## other options are: medium, large or x-large
+  location_key        = "australiaeast" ## other options are: australiasoutheast, australiacentral
+  private_endpoints_always_deployed = false ## other option is: true
   ## these are just use for the tags to be applied to each resource
-  owner       = "tbd"     ## freeform text, but should be a person or team, email address is ideal
-  cost_centre = "unknown" ## from the accountants, its the owner's cost centre
+  owner               = "tbd" ## freeform text, but should be a person or team, email address is ideal
+  cost_centre         = "unknown" ## from the accountants, its the owner's cost centre
   ##
   subscription_id = data.azurerm_client_config.current.subscription_id
 
   ## Specific to Azure Functions    
-  storage_type             = "blob"
+  storage_type = "blob"
   storage_replication_type = "LRS"
 }
 
