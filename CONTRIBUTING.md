@@ -2,6 +2,7 @@
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
+
 ```shell
 gh repo fork webstean/terraform-azurerm-compute-function-app --clone
 ```
@@ -12,6 +13,10 @@ gh repo fork webstean/terraform-azurerm-compute-function-app --clone
 
    Most of the steps can be found in the [Dockerfile](.devcontainer/Dockerfile).
 3. Create your Feature Branch (`git checkout -b amazing_feature`)
+
 4. Commit your Changes (`git commit -m 'Added something amazing!'`)
+
 5. Push your changes (`git push origin amazing_feature`)
+
 6. Open a Pull Request
+
