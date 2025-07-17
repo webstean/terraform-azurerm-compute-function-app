@@ -17,7 +17,7 @@ module "application-landing-zone" {
   version = "~>0.0, < 1.0"
 
   ## Identity
-  entra_group_id    = azuread_group.cloud_operators.id
+  entra_group_id    = data.azuread_group.cloud_operators.id
 
   ## Naming
   landing_zone_name = "play"
@@ -25,23 +25,22 @@ module "application-landing-zone" {
 
   ## Location
   subscription_id   = data.azurerm_client_config.current.subscription_id
-  location_key      = "australiaeast" ## other options are: australiasoutheast, australiacentral
+  location_key      = "australiaeast"                 ## other options are: australiasoutheast, australiacentral
 
   ## Sizing
-  sku_name          = "free" ## other options are: basic, standard, premium or isolated
-  size_name         = "small" ## other options are: medium, large or x-large
+  sku_name          = "free"                          ## other options are: basic, standard, premium or isolated
+  size_name         = "small"                         ## other options are: medium, large or x-large
 
   ## Security
-  private_endpoints_always_deployed = false ## other option is: true
-  pii_data                          = "no" ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
-  phi_data                          = "no" ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
+  private_endpoints_always_deployed = false           ## other option is: true
+  pii_data                          = "no"            ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
+  phi_data                          = "no"            ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
 
   ## Tags
-  owner_service    = "tbd" ## freeform text, business owner  - email address
-  owner_tech       = "tbd" ## freeform text, technlogy owner - email address, this where alerts will go  
-  cost_centre      = "unknown" ## from the accountants, its the owner's cost centre. Freeform text
-  monitoring       = "not-monitored" ## other options are: 24-7 or 8-5
-
+  owner_service                     = "tbd"           ## freeform text, business owner  - email address
+  owner_tech                        = "tbd"           ## freeform text, technlogy owner - email address, this where alerts will go  
+  cost_centre                       = "unknown"       ## from the accountants, its the owner's cost centre. Freeform text
+  monitoring                        = "not-monitored" ## other options are: 24-7 or 8-5
 }
 
 module "function_app" {
@@ -79,5 +78,5 @@ module "function_app" {
 ---
 ## License
 
-Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE.md) for more information.
+Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE) for more information.
 
