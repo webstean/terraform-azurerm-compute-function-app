@@ -92,6 +92,7 @@
         "zarige.jsonlint",
         "HashiCorp.terraform",
         "ms-azuretools.vscode-azureterraform",
+        "ms-dotnettools.csharp",
         "ms-vscode.powershell",
         "ms-vscode.azurecli",
         "ms-azuretools.vscode-azureresourcegroups",
