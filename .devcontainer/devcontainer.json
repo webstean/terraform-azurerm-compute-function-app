@@ -94,17 +94,19 @@
         "markdown.updateLinksOnFileMove.enabled": "always"
       },
       "extensions": [
-        "zarige.jsonlint",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
         "HashiCorp.terraform",
+        "ms-azuretools.vscode-azureappservice",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-azureresourcegroups",
         "ms-azuretools.vscode-azureterraform",
         "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
         "ms-vscode.powershell",
         "ms-vscode.azurecli",
-        "ms-azuretools.vscode-azureresourcegroups",
-        "ms-azuretools.vscode-azurefunctions",
         "redhat.vscode-yaml",
-        "GitHub.copilot",
-        "GitHub.copilot-chat"
+        "zarige.jsonlint"
       ],
       "unwantedRecommendations": [
         "eamodio.gitlens"
