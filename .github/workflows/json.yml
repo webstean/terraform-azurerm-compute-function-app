@@ -26,6 +26,10 @@ jobs:
           exit 1
         continue-on-error: false
 
+            ## Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+ 
       - name: Check files
         run: |
           pwd
