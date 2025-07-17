@@ -5,14 +5,14 @@ concurrency:
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'main'
+  #push:
+  #  branches:
+  #    - 'main'
   pull_request:
     paths-ignore:
       - '.github/workflows/*.yml'
-#  schedule:
-#      - cron: '49 5 * * 0' # runs every sunday at 5:49 am (UTC)
+  schedule:
+       - cron: '49 5 * * *' # runs every day at 5:49 am (UTC)
 
 permissions: write-all
 
