@@ -1,5 +1,6 @@
 {
-  "name": "Azure Terraform (${each.value.full_name})",
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Azure Terraform",
   "image": "mcr.microsoft.com/devcontainers/dotnet",
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {
@@ -30,8 +31,8 @@
     },
     {
         "type": "bind",
-        "source": "/home/vscode/.azure",
-        "target": "/root/.azure"
+        "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.azure",
+        "target": "/home/vscode/.azure"
     }
 ],  
   "settings": {
