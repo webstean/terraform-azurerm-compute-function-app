@@ -108,5 +108,5 @@
   },
   "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
   "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version",
-  "postStartCommand": "git pull origin main"
+  "postStartCommand": "git pull origin main && bash .devcontainer/scripts/check-extensions.sh"
 }
