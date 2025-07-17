@@ -32,8 +32,6 @@ jobs:
  
       - name: Check files
         run: |
-          pwd
-          ls -la
           if ! OUTPUT=$(jq empty renovate.json 2>&1); then
             echo "::error::jq failed to parse renovate.json"
             echo "$OUTPUT"
@@ -48,3 +46,4 @@ jobs:
           else
             echo ".devcontainer/devcontainer.json is valid ✅"
           fi
+          echo ::notice::✅ json files passed syntax check
