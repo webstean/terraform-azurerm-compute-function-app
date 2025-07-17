@@ -14,6 +14,8 @@ on:
 #  schedule:
 #      - cron: '49 5 * * 0' # runs every sunday at 5:49 am (UTC)
 
+permissions: write-all
+
 jobs:
   terraform-docs:
     name: 'Terraform Docs'
