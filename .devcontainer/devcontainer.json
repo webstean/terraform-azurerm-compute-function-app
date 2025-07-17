@@ -3,6 +3,11 @@
   "name": "Azure Terraform",
   "image": "mcr.microsoft.com/devcontainers/dotnet",
   "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/azure/azure-dev/azd:latest": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "version": "latest"
     },
@@ -20,7 +25,7 @@
     "ghcr.io/devcontainers/features/dotnet:2":{
       "version": "9.0",
       "additionalVersions": "8.0",
-      "workloads": "aspire, wasm-tools"
+      "workloads": "aspire"
     }
   },
 "mounts": [
@@ -103,10 +108,14 @@
       ],
       "unwantedRecommendations": [
         "eamodio.gitlens"
-      ]
+      ],
+      "welcome": {
+        "title": "👋 Welcome to this Codespace!",
+        "markdown": "WELCOME.md"
+      }
     }
   },
   "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
-  "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version",
+  "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version && azd version",
   "postStartCommand": "git fetch origin && git reset --hard origin/main && bash .devcontainer/scripts/check-extensions.sh"
 }
