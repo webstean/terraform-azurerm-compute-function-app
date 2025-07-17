@@ -76,4 +76,8 @@ module "function_app" {
   runtime            = "python" ## supported runtimes are: python, nodejs, .net, java, powershell, custom. Defaults to powershell
 
 }
+---
+## License
+
+Distributed under the Apache-2.0 License. See [LICENSE](./LICENSE.md) for more information.
 
