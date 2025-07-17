@@ -1,7 +1,10 @@
 # Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project (gh repo fork webstean/terraform-azurerm-compute-function-app --clone)
+1. Fork the Project
+```shell
+gh repo fork webstean/terraform-azurerm-compute-function-app --clone
+```
 2. Setup the environment.  
    This project uses vscode devcontainer to provide a completly configured development environment. If you are using vscode and have the remote container extension installed, you should be asked to use the devcontainer when you open this project inside of vscode.
 
