@@ -6,6 +6,8 @@ concurrency:
 on:
   workflow_dispatch:
 
+permissions: read-all
+
 jobs:
   json-check:
     name: 'JSON Check'
