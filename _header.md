@@ -8,6 +8,15 @@ Function as a Service (FaaS) with Azure, you'll need to specify runtime, such as
 [Terraform Registry Home - my other modules](https://registry.terraform.io/namespaces/webstean)
 
 
+[![Python][terraform-shield]][tf-version]
+[![Latest][version-shield]][release-url]
+[![Tests][test-shield]][test-url]
+[![License][license-shield]][license-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url] -->  
+
 This module is intended to be an **example** of how you can use Terraform Azure modules in a enterprise like environment.
 
 > [!IMPORTANT]
@@ -78,3 +87,7 @@ module "function_app" {
 }
 ```
 ---
+## License
+
+Distributed under the Apache-2.0 License. See [LICENSE](./LICENSE.md) for more information.
+
