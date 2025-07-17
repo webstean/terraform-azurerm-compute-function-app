@@ -10,4 +10,4 @@ dotnet dev-certs https
 sudo -E dotnet dev-certs https --export-path /usr/local/share/ca-certificates/dotnet-dev-cert.crt --format pem
 
 # Add the PEM file to the trust store
-sudo update-ca-certificatest
+sudo update-ca-certificate
