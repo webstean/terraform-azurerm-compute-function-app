@@ -68,6 +68,8 @@
     "files.associations": {
       "*.sh.tmpl": "shellscript"
     },
+    "files.eol": "\n",
+    "files.autoGuessEncoding": false,
     "files.trimTrailingWhitespace": true,
     "terraform.languageServer": {
       "enabled": true
