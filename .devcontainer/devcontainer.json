@@ -17,9 +17,18 @@
       "version": "latest"
     }
   },
-//  "mounts": [
-//    "source=${env:HOME}/.azure,target=/root/.azure,type=bind"
-//  ],
+"mounts": [
+    {
+        "type": "volume",
+        "source": "x509stores",
+        "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
+    },
+    {
+        "type": "bind",
+        "source": "/home/vscode/.azure",
+        "target": "/root/.azure"
+    }
+],  
   "settings": {
     "[terraform]": {
       "editor.defaultFormatter": "hashicorp.terraform",
@@ -86,9 +95,7 @@
   "unwantedRecommendations": [
     "eamodio.gitlens"
   ],
+  "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
   "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version",
   "postStartCommand": "git pull origin main"
-  // example: devcontainer-tasks
-  // "postCreateCommand": "cd tests && go mod init ${localWorkspaceFolderBasename} || true",
-  // "postStartCommand": "pre-commit install && tflint --init && tfswitch && cd tests && go mod tidy",
 }
