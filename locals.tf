@@ -23,7 +23,6 @@ locals {
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
       time_zone_auto            = "Australia/Sydney"
-      immutable_backups_enabled = false
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -48,37 +47,11 @@ locals {
       vwan_address_space = "10.3.1.0/24"
       ## Needs to be < 255 - use telephone area code
       location_number = 3
-      ## (Optional) The BGP community attribute in format <as-number>:<community-value>.
-      // vnet_bgp_community   = "1234:public"
-      vnet_bgp_community       = null
-      private_endpoints_subnet = "private-endpoints"
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
+   
+      dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
-      ## Custom DNS servers - no need for this, unless you have ExpressRoute/PrivateLinks
-      #dns_servers        = ["8.8.8.8", "8.8.4.4"]
-      ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
-      ## Azure Internal DNS - 168.63.129.16
-
-      ## Compute Defaults
-      default_linux_sku         = "Standard_D2ds_v5"
-      default_linux_os_simple   = "UbuntuServer"
-      default_windows_sku       = "E2ads_v5"
-      default_windows_os_simple = "Windows2025"
-
-      // Storage Account Defaults
-      ## BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Defaults to StorageV2.
-      default_account_kind = "StorageV2"
-      ## Standard or Premium - Premium need for NFS and/or SFTP (which is expensive - even if you don't use it!)
-      default_account_tier              = "Standard"
-      default_access_tier               = "Cool"
-      default_account_replication_type  = "LRS"
-      default_last_access_time_enabled  = true
-      infrastructure_encryption_enabled = false
-      min_tls_version                   = "TLS1_2"
-      # hns needs to be enabled for NFS
-      is_hns_enabled = "false"
-      nfsv3_enabled  = "false"
-
-      ##    lake_containers = local.lake_containers
+      lake_containers = local.lake_containers
     }
 
     australiaeast = { // needs to be the official Azure region name
@@ -92,7 +65,6 @@ locals {
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
       time_zone_auto            = "Australia/Sydney"
-      immutable_backups_enabled = false
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -117,37 +89,11 @@ locals {
       vwan_address_space = "10.2.1.0/24"
       ## Needs to be < 255 - use telephone area code
       location_number = 2
-      ## (Optional) The BGP community attribute in format <as-number>:<community-value>.
-      // vnet_bgp_community   = "1234:public"
-      vnet_bgp_community       = null
-      private_endpoints_subnet = "private-endpoints"
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
 
-      ## Custom DNS servers - no need for this, unless you have ExpressRoute/PrivateLinks
-      #dns_servers        = ["8.8.8.8", "8.8.4.4"]
-      dns_servers = null
-      ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
-      ## Azure Internal DNS - 168.63.129.16
+      dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
-      ## Compute Defaults
-      default_linux_sku         = "Standard_D2ds_v5"
-      default_linux_os_simple   = "UbuntuServer"
-      default_windows_sku       = "E2ads_v5"
-      default_windows_os_simple = "Windows2025"
-
-      // Storage Account Defaults
-      ## BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Defaults to StorageV2.
-      default_account_kind = "StorageV2"
-      ## Standard or Premium - Premium need for NFS and/or SFTP (which is expensive - even if you don't use it!)
-      default_account_tier             = "Standard"
-      default_access_tier              = "Cool"
-      default_account_replication_type = "LRS"
-      default_last_access_time_enabled = true
-      min_tls_version                  = "TLS1_2"
-      # hns needs to be enabled for NFS
-      is_hns_enabled = "false"
-      nfsv3_enabled  = "false"
-
-      ##      lake_containers = local.lake_containers
+      lake_containers = local.lake_containers
     }
 
     australiacentral = { // needs to be the official Azure region name
@@ -161,7 +107,6 @@ locals {
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
       time_zone_auto            = "Australia/Sydney"
-      immutable_backups_enabled = false
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -187,36 +132,9 @@ locals {
       vwan_address_space = "10.22.1.0/24"
       ## Needs to be < 255 - use telephone area code
       location_number = 22
-      ## (Optional) The BGP community attribute in format <as-number>:<community-value>.
-      // vnet_bgp_community   = "1234:public"
-      vnet_bgp_community       = null
-      private_endpoints_subnet = "private-endpoints"
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
 
-      ## Custom DNS servers - no need for this, unless you have ExpressRoute/PrivateLinks
-      #dns_servers        = ["8.8.8.8", "8.8.4.4"]
-      dns_servers = null
-      ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
-      ## Azure Internal DNS - 168.63.129.16
-
-      ## Compute Defaults
-      default_linux_sku         = "Standard_D2ds_v5"
-      default_linux_os_simple   = "UbuntuServer"
-      default_windows_sku       = "E2ads_v5"
-      default_windows_os_simple = "Windows2025"
-
-      // Storage Account Defaults
-      ## BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Defaults to StorageV2.
-      default_account_kind = "StorageV2"
-      ## Standard or Premium - Premium need for NFS and/or SFTP (which is expensive - even if you don't use it!)
-      default_account_tier              = "Standard"
-      default_access_tier               = "Cool"
-      default_account_replication_type  = "LRS"
-      default_last_access_time_enabled  = true
-      infrastructure_encryption_enabled = false
-      min_tls_version                   = "TLS1_2"
-      # hns needs to be enabled for NFS
-      is_hns_enabled = "false"
-      nfsv3_enabled  = "false"
+      dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
       ##      lake_containers = local.lake_containers
     }
@@ -232,7 +150,6 @@ locals {
       timezone = "AUS Eastern Standard Time"
       ## for automation schedules
       time_zone_auto = "Australia/Sydney"
-      immutable_backups_enabled = false
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -257,40 +174,59 @@ locals {
       vwan_address_space = "10.222.1.0/24"
       ## Needs to be < 255 - use telephone area code
       location_number = 3
-      ## (Optional) The BGP community attribute in format <as-number>:<community-value>.
-      // vnet_bgp_community   = "1234:public"
-      vnet_bgp_community   = null
-      private_endpoints_subnet = "private-endpoints"
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
 
-      ## Custom DNS servers - no need for this, unless you have ExpressRoute/PrivateLinks
-      #dns_servers        = ["8.8.8.8", "8.8.4.4"]
       dns_servers        = null
-      ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
-      ## Azure Internal DNS - 168.63.129.16
 
-      ## Compute Defaults
-      default_linux_sku        = "Standard_D2ds_v5"
-      default_linux_os_simple        = "UbuntuServer"
-      default_windows_sku      = "E2ads_v5"
-      default_windows_os_simple = "Windows2025"
-
-      // Storage Account Defaults
-      ## BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Defaults to StorageV2.
-      default_account_kind = "StorageV2"
-      ## Standard or Premium - Premium need for NFS and/or SFTP (which is expensive - even if you don't use it!)
-      default_account_tier              = "Standard"
-      default_access_tier               = "Cool"
-      default_account_replication_type  = "LRS"
-      default_last_access_time_enabled  = true
-      infrastructure_encryption_enabled = false
-      min_tls_version                   = "TLS1_2"
-      # hns needs to be enabled for NFS
-      is_hns_enabled = "false"
-      nfsv3_enabled  = "false"
-
-##      lake_containers = local.lake_containers
+      lake_containers = local.lake_containers
     }
 */
+/*
+    perth = { // needs to be the official Azure region name
+      // Freeform name - can be anything
+      name               = "Perth"
+      postcode           = "6000"
+      short_name         = "per"
+      preferred_language = "en"
+      country_code       = "AU"
+      data_location      = "Australia"
+      timezone           = "AUS Western Standard Time"
+      ## for automation schedules
+      time_zone_auto            = "Australia/Perth"
+
+      // Offical Azure location (region)
+      edge_zone                          = "perth"
+      long_name                          = "(Asia Pacific) Australia East"
+      location                           = "australiaeast"
+      location_shortname                 = "ae"
+      zone_redundancy_available          = true
+      zones                              = [1, 2, 3]
+      default_rep_location               = "australiasoutheast"
+      sql_maintenance_configuration_name = "SQL_AustraliaEast_DB_1"
+      ## Static Web Apps location - limited region support
+      swa_location = "eastasia" ## "westus2", "centralus", "eastus2", "westeurope", "eastasia"
+
+      // AWS
+      aws_region_name = "ap-southeast-2"
+      // Google Cloud
+      gcp_region_name = "australia-southeast2"
+
+      vnet_name          = "per-${var.landing_zone_name}-vnet01"
+      vnet_address_space = ["10.6.0.0/16"]
+      ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
+      vwan_address_space = "10.6.1.0/24"
+      ## Needs to be < 255 - use telephone area code
+      location_number = 6
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
+
+      dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
+
+      lake_containers = local.lake_containers
+    }
+*/
+
+
+
   }
 }
 
