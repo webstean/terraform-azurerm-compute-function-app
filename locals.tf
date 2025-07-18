@@ -1,6 +1,7 @@
 
 locals {
-  iac_message = "Created and Managed by Terraform - do not manually change - use Terraform (IAC) instead"
+  lock_kind = "CanNotDelete" // "CanNotDelete" or "ReadOnly"
+  iac_message = "Created and Managed by Terraform - no ClickOps! - use Terraform (IAC) instead"
 
   ## use this instead of variable: var.default_region
   primary_region = local.regions["australiaeast"]
@@ -29,7 +30,7 @@ locals {
       long_name                          = "(Asia Pacific) Australia Southeast"
       location                           = "australiasoutheast"
       location_shortname                 = "ase"
-      zone_redundant                     = false
+      zone_redundancy_available          = false
       zones                              = null
       default_rep_location               = "australiaeast"
       sql_maintenance_configuration_name = "SQL_AustraliaSouthEast_DB_1"
@@ -98,7 +99,7 @@ locals {
       long_name                          = "(Asia Pacific) Australia East"
       location                           = "australiaeast"
       location_shortname                 = "ae"
-      zone_redundant                     = false
+      zone_redundancy_available          = true
       zones                              = [1, 2, 3]
       default_rep_location               = "australiasoutheast"
       sql_maintenance_configuration_name = "SQL_AustraliaEast_DB_1"
@@ -167,7 +168,7 @@ locals {
       long_name                          = "(Asia Pacific) Australia Central"
       location                           = "australiacentral"
       location_shortname                 = "acl"
-      zone_redundant                     = false
+      zone_redundancy_available          = false
       zones                              = null
       default_rep_location               = "australiaeast"
       sql_maintenance_configuration_name = "SQL_AustraliaEast_DB_1"
@@ -238,7 +239,7 @@ locals {
       long_name          = "(Asia Pacific) Australia Central 2"
       location           = "australiacentral2"
       location_shortname = "acl2"
-      zone_redundant     = false
+      zone_redundancy_available          = false
       zones      = null
       default_rep_location = "australiaeast"
       sql_maintenance_configuration_name = "SQL_AustraliaEast_DB_1"
