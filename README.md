@@ -86,7 +86,7 @@ module "function_app" {
 ---
 ## License
 
-Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE.md) for more information.
+Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](./LICENSE) for more information.
 
 <!-- markdownlint-disable MD033 -->
 ## Requirements
@@ -106,9 +106,6 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 | [azuread_service_principal.existing-apim](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
 | [azuread_service_principal.existing-dynamicserp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
 | [azuread_service_principal.msgraph](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
-| [azurerm_role_assignment.functionapp-storage](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_role_assignment.functionapp_python](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
-| [azurerm_storage_container.functionapp](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) | resource |
 | [random_string.naming_seed](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 | [azuread_application_published_app_ids.well_known](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application_published_app_ids) | data source |
 | [azuread_client_config.current](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/client_config) | data source |
@@ -117,6 +114,8 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 | [azuread_domains.initial](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
 | [azuread_domains.root](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
 | [azuread_domains.unmanaged](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/domains) | data source |
+| [azuread_group.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/group) | data source |
+| [azuread_managed_identity.this](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/managed_identity) | data source |
 | [azuread_service_principal.existing-apim](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azuread_service_principal.existing-dynamicserp](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
 | [azuread_service_principal.msgraph](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/service_principal) | data source |
@@ -194,10 +193,7 @@ Distributed under the Mozilla Public License Version 2.0 License. See [LICENSE](
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_functionapp_appservice"></a> [functionapp\_appservice](#module\_functionapp\_appservice) | Azure/avm-res-web-serverfarm/azurerm | ~>0.0, < 1.0 |
-| <a name="module_functionapp_python"></a> [functionapp\_python](#module\_functionapp\_python) | Azure/avm-res-web-site/azurerm | ~>0.0, < 1.0 |
 | <a name="module_naming-application"></a> [naming-application](#module\_naming-application) | Azure/naming/azurerm | ~>0.0, < 1.0 |
-| <a name="module_storage-functionapp"></a> [storage-functionapp](#module\_storage-functionapp) | webstean/storage-account/azurerm | ~>0.0, < 1.0 |
 
 ---
 
