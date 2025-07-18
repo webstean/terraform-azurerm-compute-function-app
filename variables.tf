@@ -3,7 +3,8 @@ variable "dns_zone_name" {
   sensitive = false
   #default     = "example.com"
   description = <<DESCRIPTION
-This variable provides the name public DNS zones of the landing zone
+This variable provides the name public (future maybe private) DNS zone for the landing zone. The landing zone module will create this DNS zone and two sub-zones for the application (appi) and apis (api)
+Any custom names will be defined with this DNS zone, so that the DNS zone can be used to resolve the names of the resources in the landing zone.
 DESCRIPTION
 }
 
@@ -12,7 +13,7 @@ variable "enable_telemetry" {
   sensitive   = false
   default     = true
   description = <<DESCRIPTION
-This variable controls whether or not Microsoft telemetry is enabled for the AVM modules, that modeule will call.
+This variable controls whether or not Microsoft telemetry is enabled for the AVM modules, that this module will ultimately call.
 For more information see https://aka.ms/avm/telemetryinfo.
 If it is set to false, then no telemetry will be collected.
 The default is true.
