@@ -8,7 +8,7 @@ locals {
     costcentre  = var.cost_centre
     data_PII    = var.data_pii
     data_PHI    = var.data_phi
-    project     = var.owner
+    owner       = var.owner
     project     = var.project_name
     application = var.application_name
     createdby   = "terraform"
