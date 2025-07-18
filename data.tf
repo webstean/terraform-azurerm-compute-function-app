@@ -20,8 +20,8 @@ locals {
 locals {
   default_domain         = data.azuread_domains.default.domains[0].domain_name
   zone_balancing_enabled = var.sku_name == "premium" || var.sku_name == "isolated" ? true : false
-  contains_real_data     = var.data_pii == "yes" || var.data_pii == "yes" ? false : true
-  storage_endpoints      = toset(["blob", "queue", "table", "file"])
+  contains_real_data  = var.data_pii == "yes" || var.data_pii == "yes" ? false : true
+  storage_endpoints              = toset(["blob", "queue", "table", "file"])
 }
 
 data "azurerm_role_definition" "owner" {
