@@ -1,6 +1,6 @@
 
 locals {
-  lock_kind   = "CanNotDelete" // "CanNotDelete" or "ReadOnly"
+  lock_kind = "CanNotDelete" // "CanNotDelete" or "ReadOnly"
   iac_message = "Created and Managed by Terraform - no ClickOps! - use Terraform (IAC) instead"
 
   ## use this instead of variable: var.default_region
@@ -22,7 +22,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -46,9 +46,9 @@ locals {
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.3.1.0/24"
       ## Needs to be < 255 - use telephone area code
-      location_number    = 3
-      vnet_bgp_community = null ## The BGP community attribute in format <as-number>:<community-value>.
-
+      location_number = 3
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
+   
       dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
       lake_containers = local.lake_containers
@@ -64,7 +64,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -88,8 +88,8 @@ locals {
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.2.1.0/24"
       ## Needs to be < 255 - use telephone area code
-      location_number    = 2
-      vnet_bgp_community = null ## The BGP community attribute in format <as-number>:<community-value>.
+      location_number = 2
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
 
       dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
@@ -106,7 +106,7 @@ locals {
       data_location      = "Australia"
       timezone           = "AUS Eastern Standard Time"
       ## for automation schedules
-      time_zone_auto = "Australia/Sydney"
+      time_zone_auto            = "Australia/Sydney"
 
       // Offical Azure location (region)
       edge_zone                          = null
@@ -131,8 +131,8 @@ locals {
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.22.1.0/24"
       ## Needs to be < 255 - use telephone area code
-      location_number    = 22
-      vnet_bgp_community = null ## The BGP community attribute in format <as-number>:<community-value>.
+      location_number = 22
+      vnet_bgp_community       = null ## The BGP community attribute in format <as-number>:<community-value>.
 
       dns_servers = null ## Azure Internal DNS - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 
@@ -181,7 +181,7 @@ locals {
       lake_containers = local.lake_containers
     }
 */
-    /*
+/*
     perth = { // needs to be the official Azure region name
       // Freeform name - can be anything
       name               = "Perth"
