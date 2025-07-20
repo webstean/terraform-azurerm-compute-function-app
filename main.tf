@@ -11,7 +11,7 @@ data "azuread_group" "this" {
 }
 
 data "azurerm_user_assigned_identity" "this" {
-  name                = var.user_managed_id
+  id                  = var.user_managed_id
   resource_group_name = var.resource_group_name
 }
 
