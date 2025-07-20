@@ -11,6 +11,27 @@ locals {
 }
 
 locals {
+  ## https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints
+  storage_private_endpoints      = toset(["blob", "dfs", "file", "queue", "table", "web"])
+}
+
+locals {
+  default_cors = {
+      allowed_methods = [
+      ],
+      allowed_origins = [
+        "https://${data.azuread_domains.root.domains.0.domain_name}",
+        "https://*.${var.dns_zone_name}",
+        "https://*.powerapps.com",
+        "https://*.powerautomate.com",
+        "https://*.azure.com",
+      ],
+  }
+}
+
+
+
+locals {
   regions = {
     australiasoutheast = {
       // Freeform name - can be anything
@@ -231,27 +252,6 @@ locals {
 }
 
 locals {
-  awsregions = {
-    melbourne = {
-      short_name  = "melaws"
-      region_name = "ap-southeast-4"
-    }
-    sydney = {
-      short_name      = "sydaws"
-      region_namename = "ap-southeast-2"
-    }
-    canberra1 = {
-      short_name  = null
-      region_name = null
-    }
-    canberra2 = {
-      short_name    = null
-      regional_name = null
-    }
-  }
-}
-
-locals {
   lake_containers = {
     raw        = "raw"
     curated    = "curated"
@@ -260,4 +260,7 @@ locals {
   region_lake_containers = {
     for region_key, region_value in local.regions : region_key => local.lake_containers
   }
+}
+output "region_lake_containers" {
+  value = local.region_lake_containers
 }
