@@ -18,7 +18,7 @@ data "azuread_managed_identity" "this" {
 ## optional - must exist, except for the landing zone module
 ## only relevant if private_endpoints_always_deployed == false
 data "azurerm_dns_zone" "this" {
-  count               = var.private_endpoints_always_deployed ? 0 : 1
+  count              = var.private_endpoints_always_deployed ? 0 : 1
   name                = var.dns_zone_name
   resource_group_name = var.resource_group_name
 }
