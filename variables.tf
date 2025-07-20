@@ -20,7 +20,7 @@ The default is true.
 DESCRIPTION
 }
 
-variable "user_managed_id" {
+variable "user_managed_name" {
   description = <<CONTENT
 The Entra ID / Azure Managed Identity that will give access to this resource.
 Note, that Managed Identities can be created in either Entra ID (azuread_application) or Azure ()
@@ -28,12 +28,12 @@ Unless you need a secret for things, like external authentication, then you shou
 This module only support user-assigned managed identities, not system-assigned managed identities.
 CONTENT
   type        = string
+#  validation {
+#    condition     = can(regex("^/subscriptions/[a-f0-9-]+/resourceGroups/[^/]+/providers/Microsoft\\.ManagedIdentity/userAssignedIdentities/[^/]+$", var.user_managed_name))
+#    error_message = "The managed identity ID must be a valid ARM ID of a user-assigned identity."
+#  }
   validation {
-    condition     = can(regex("^/subscriptions/[a-f0-9-]+/resourceGroups/[^/]+/providers/Microsoft\\.ManagedIdentity/userAssignedIdentities/[^/]+$", var.user_managed_id))
-    error_message = "The managed identity ID must be a valid ARM ID of a user-assigned identity."
-  }
-  validation {
-    condition     = length(var.user_managed_id) > 0
+    condition     = length(var.user_managed_name) > 0
     error_message = "The variable location cannot be blank."
   }
 }
