@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "Azure Terraform",
+  "name": "Azure Terraform (${each.value.full_name})",
   "image": "mcr.microsoft.com/devcontainers/dotnet",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {
@@ -22,33 +22,29 @@
     "ghcr.io/devcontainers/features/powershell:1": {
       "version": "latest"
     },
-    "ghcr.io/devcontainers/features/dotnet:2":{
+    "ghcr.io/devcontainers/features/dotnet:2": {
       "version": "9.0",
       "additionalVersions": "8.0",
       "workloads": "aspire"
     }
   },
-"mounts": [
+  "mounts": [
     {
-        "type": "volume",
-        "source": "x509stores",
-        "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
+      "type": "volume",
+      "source": "x509stores",
+      "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
     },
     {
-        "type": "bind",
-        "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.azure",
-        "target": "/home/vscode/.azure"
+      "type": "bind",
+      "source": "${localEnv:HOME}${localEnv:USERPROFILE}/.azure",
+      "target": "/home/vscode/.azure"
     }
-],
-{
+  ],
   "containerEnv": {
-    "AZURE_CLIENT_ID": "${{ secrets.AZURE_CLIENT_ID }}",
-    "AZURE_TENANT_ID": "${{ secrets.AZURE_TENANT_ID }}",
-    "AZURE_CLIENT_SECRET": "${{ secrets.AZURE_CLIENT_SECRET }}",
-    "AZURE_SUBSCRIPTION_ID": "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+    "ARM_CLIENT_ID": "${{ secrets.ARM_CLIENT_ID }}",
+    "ARM_TENANT_ID": "${{ secrets.ARM_TENANT_ID }}",
+    "ARM_SUBSCRIPTION_ID": "${{ secrets.ARM_SUBSCRIPTION_ID }}"
   },
-  "postCreateCommand": "az login --service-principal --username $AZURE_CLIENT_ID --password $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID"
-}
   "customizations": {
     "codespaces": {
       "openFiles": ["DEVELOPER.md"]
@@ -117,16 +113,14 @@
         "redhat.vscode-yaml",
         "zarige.jsonlint"
       ],
-      "unwantedRecommendations": [
-        "eamodio.gitlens"
-      ],
+      "unwantedRecommendations": ["eamodio.gitlens"],
       "welcome": {
         "title": "👋 Welcome to this Codespace!",
         "markdown": "WELCOME.md"
       }
     }
   },
-  "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
+  "onCreateCommand": "bash .devcontainer/scripts/setup-dotnet-dev-cert.sh",
   "postCreateCommand": "terraform --version && terraform-docs --version && tfsec --version && azd version",
-  "postStartCommand": "git fetch origin && git reset --hard origin/main && bash .devcontainer/scripts/check-extensions.sh"
+  "postStartCommand": "git fetch origin && git reset --hard origin/main && bash .devcontainer/scripts/azlogin.sh"
 }
