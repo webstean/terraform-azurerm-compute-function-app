@@ -12,20 +12,30 @@ locals {
 
 locals {
   ## https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints
-  storage_private_endpoints = toset(["blob", "dfs", "file", "queue", "table", "web"])
+  storage_private_endpoints      = toset(["blob", "dfs", "file", "queue", "table", "web"])
 }
 
 locals {
   default_cors = {
-    allowed_methods = [
-    ],
-    allowed_origins = [
-      "https://${data.azuread_domains.root.domains.0.domain_name}",
-      "https://*.${var.dns_zone_name}",
-      "https://*.powerapps.com",
-      "https://*.powerautomate.com",
-      "https://*.azure.com",
-    ],
+      allowed_methods = [
+        "*",
+      ],
+      allowed_origins = [
+#        "https://${data.azuread_domains.root.domains.0.domain_name}",
+#        "https://*.${var.dns_zone_name}",
+        "https://*.powerapps.com",
+        "https://*.powerautomate.com",
+        "https://*.azure.com",
+      ],
+  }
+  secure_cors = {
+      allowed_methods = [
+        "*",
+      ],
+      allowed_origins = [
+        "https://${data.azuread_domains.root.domains.0.domain_name}",
+        "https://*.${var.dns_zone_name}",
+      ],
   }
 }
 
@@ -48,6 +58,7 @@ locals {
       // Offical Azure location (region)
       edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia Southeast"
+      region                             = "australiasoutheast"
       location                           = "australiasoutheast"
       location_shortname                 = "ase"
       zone_redundancy_available          = false
@@ -62,7 +73,7 @@ locals {
       // Google Cloud
       gcp_region_name = "australia-southeast2"
 
-      vnet_name          = "mel-${var.landing_zone_name}-vnet01"
+      #vnet_name          = "mel-${var.landing_zone_name}-vnet01"
       vnet_address_space = ["10.3.0.0/16"]
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.3.1.0/24"
@@ -90,6 +101,7 @@ locals {
       // Offical Azure location (region)
       edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia East"
+      region                             = "australiaeast"
       location                           = "australiaeast"
       location_shortname                 = "ae"
       zone_redundancy_available          = true
@@ -104,7 +116,7 @@ locals {
       // Google Cloud
       gcp_region_name = "australia-southeast2"
 
-      vnet_name          = "syd-${var.landing_zone_name}-vnet01"
+      #vnet_name          = "syd-${var.landing_zone_name}-vnet01"
       vnet_address_space = ["10.2.0.0/16"]
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.2.1.0/24"
@@ -132,6 +144,7 @@ locals {
       // Offical Azure location (region)
       edge_zone                          = null
       long_name                          = "(Asia Pacific) Australia Central"
+      region                             = "australiacentral"
       location                           = "australiacentral"
       location_shortname                 = "acl"
       zone_redundancy_available          = false
@@ -147,7 +160,7 @@ locals {
       gcp_region_name = null
 
       // vNet (free) with 7 subnets (free)
-      vnet_name          = "can1-${var.landing_zone_name}-vnet01"
+      #vnet_name          = "can-${var.landing_zone_name}-vnet01"
       vnet_address_space = ["10.22.0.0/16"]
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.22.1.0/24"
@@ -175,6 +188,7 @@ locals {
       // Offical Azure location (region)
       edge_zone                          = null
       long_name          = "(Asia Pacific) Australia Central 2"
+      region             = "australiacentral2"
       location           = "australiacentral2"
       location_shortname = "acl2"
       zone_redundancy_available          = false
@@ -189,7 +203,7 @@ locals {
       // Google Cloud
       gcp_region_name = null
 
-      vnet_name          = "can2-vnet01"
+      #vnet_name          = "can2-${var.landing_zone_name}-vnet01"
       vnet_address_space = ["10.222.0.0/16"]
       ## The vWAN address prefix subnet cannot be smaller than a /24. Azure recommends using a /23.
       vwan_address_space = "10.222.1.0/24"
@@ -218,10 +232,11 @@ locals {
       // Offical Azure location (region)
       edge_zone                          = "perth"
       long_name                          = "(Asia Pacific) Australia East"
+      region                             = "australiaeast"
       location                           = "australiaeast"
       location_shortname                 = "ae"
       zone_redundancy_available          = true
-      zones                              = [1, 2, 3]
+      zones                              = null
       default_rep_location               = "australiasoutheast"
       sql_maintenance_configuration_name = "SQL_AustraliaEast_DB_1"
       ## Static Web Apps location - limited region support
