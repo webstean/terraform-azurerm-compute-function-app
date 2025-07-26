@@ -1,13 +1,13 @@
 ## application module
-## check the input variables are axctually valid
+## check the input variables are actually valid
 
-## mandatory
+## this has to already exist, you cannot create it here
 data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
 
 data "azuread_group" "this" {
-  object_id = startswith(var.entra_group_id, "/groups/") ? substr(var.entra_group_id, 8, -1) : var.entra_group_pag_id
+  object_id = startswith(var.entra_group_pag_id, "/groups/") ? substr(var.entra_group_pag_id, 8, -1) : var.entra_group_pag_id
 }
 
 data "azurerm_user_assigned_identity" "this" {
