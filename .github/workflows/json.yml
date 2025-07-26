@@ -1,0 +1,49 @@
+name: 'JSON - File Check'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+on:
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  json-check:
+    name: 'JSON Check'
+    strategy:
+      matrix:
+        ## runs-on: [ubuntu-latest, macos-latest, windows-latest]
+        runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.runs-on }}
+
+    steps:
+      ## Check if runner is Linux, exit if it isn't
+      - name: Check Runner is Linux
+        if: runner.os != 'Linux'
+        run: |
+          echo "The operating system on the runner is not Linux, it's $RUNNER_OS."
+          exit 1
+        continue-on-error: false
+
+            ## Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+ 
+      - name: Check files
+        run: |
+          if ! OUTPUT=$(jq empty renovate.json 2>&1); then
+            echo "::error::jq failed to parse renovate.json"
+            echo "$OUTPUT"
+            exit 1
+          else
+            echo "renovate.json is valid ✅"
+          fi
+          if ! OUTPUT=$(jq empty .devcontainer/devcontainer.json 2>&1); then
+            echo "::error::jq failed to parse .devcontainer/devcontainer.json"
+            echo "$OUTPUT"
+            exit 1
+          else
+            echo ".devcontainer/devcontainer.json is valid ✅"
+          fi
+          echo ::notice::✅ json files passed syntax check
