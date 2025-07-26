@@ -61,12 +61,12 @@ module "function_app" {
   version = "~>0.0, < 1.0"
 
   ## identity
-  user_managed_id     = module.application_landing_zone.user_managed_id     ## services/applications
-  entra_group_id      = azuread_group.cloud_operators.id                    ## humans/admin users
+  entra_group_pag_id             = module.application_landing_zone.entra_group_pag_id             ## services/applications
+  user_assigned_identity_name    = module.application_landing_zone.user_assigned_identity_name    ## humans/admin users
   
   ## naming
   resource_group_name = module.application_landing_zone.resource_group_name
-  landing_zone_name   = "play"
+  landing_zone_name   = module.application_landing_zone.landing_zone_name
   project_name        = "main"
   application_name    = "webstean"
   
