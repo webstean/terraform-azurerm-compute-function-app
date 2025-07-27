@@ -14,6 +14,8 @@ locals {
     createdby   = "terraform"
     monitoring  = var.monitoring
     created     = formatdate("DD/MM/YYYY", timestamp())
+    owner_service = var.owner_service
+    owner_tech  = var.owner_tech
   }
 }
 
