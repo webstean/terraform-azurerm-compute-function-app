@@ -62,10 +62,10 @@ module "application-landing-zone" {
   phi_data                          = "no"            ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
 
   ## Tags
-  owner_service                     = "tbd"           ## freeform text, business owner  - email address
-  owner_tech                        = "tbd"           ## freeform text, technlogy owner - email address, this where alerts will go  
-  cost_centre                       = "unknown"       ## from the accountants, its the owner's cost centre. Freeform text
-  monitoring                        = "not-monitored" ## other options are: 24-7 or 8-5
+  owner_service        = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  owner_tech           = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  cost_centre          = "unknown"                    ## from the accountants, its the owner's cost centre. Freeform text
+  monitoring           = "not-monitored"              ## other options are: 24-7 or 8-5
 }
 
 module "function_app" {
@@ -94,7 +94,8 @@ module "function_app" {
   resource_group_name = module.application-landing-zone.resource_group_name // use the one supplied by the application landing zone, or use another (but it needs to exist, it can't be creatred here)
 
   ## Tags
-  owner               = module.application-landing-zone.owner
+  owner_service                     = module.application-landing-zone.owner_service
+  owner_tech                        = module.application-landing-zone.owner_tech
   cost_centre         = module.application-landing-zone.cost_centre
   monitoring          = module.application-landing-zone.monitoring
 
