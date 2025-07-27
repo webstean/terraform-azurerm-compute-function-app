@@ -349,9 +349,36 @@ CONTENT
   default     = []
 }
 
-variable "owner" {
+variable "owner_tech" {
   description = <<CONTENT
-The name (preferably email address) of the resource owner for contacting in a disaster or seeking guiandance.
+The name (preferably email address) of the technicalwner for contacting in a disaster or seeking guiandance.
+This is intended to assist in complying with frameworks like ITIL, COBIT, ISO27001, NIST etc...
+He basically tell who is responsible for the resource, so that if when these is a problem, we know who to contact.
+This will appear in the owner tag of the resource, so that it can be easily found.
+CONTENT
+  sensitive   = false
+  type        = string
+  default     = "unknown"
+  validation {
+    error_message = "The variable owner cannot be blank/empty string."
+    condition     = length(var.owner) > 0
+  }
+  validation {
+    error_message = "The variable owner must be more than 6 characters"
+    condition     = length(var.owner) > 6
+  }
+  validation {
+    error_message = "The variable owner must be between 6 and 25 characters and can only contain lowercase letters, numbers, hyphens and @"
+    condition = (
+      length(var.owner) > 6 &&
+      length(var.owner) < 25 &&
+      can(regex("@|[a-z.*]|[0-9]", var.owner))
+    )
+  }
+}
+variable "owner_service" {
+  description = <<CONTENT
+The name (preferably email address) of the service owner for contacting in a disaster or seeking guiandance.
 This is intended to assist in complying with frameworks like ITIL, COBIT, ISO27001, NIST etc...
 He basically tell who is responsible for the resource, so that if when these is a problem, we know who to contact.
 This will appear in the owner tag of the resource, so that it can be easily found.
