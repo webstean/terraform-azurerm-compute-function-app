@@ -22,8 +22,8 @@ CONTENT
 }
 
 variable "dns_zone_name" {
-  type        = string
-  sensitive   = false
+  type      = string
+  sensitive = false
   #default     = "example.com"
   description = <<DESCRIPTION
 This variable provides the name public (future maybe private) DNS zone for the landing zone. The landing zone module will create this DNS zone and two sub-zones for the application (appi) and apis (api)
@@ -100,14 +100,14 @@ Therefore you'll typically see that module wwill NOT grant high-level priviledge
 CONTENT
   type        = string
   default     = null
-##  validation {
-##    condition     = can(regex("^/groups/([a-fA-F0-9]{8}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{12})$", var.entra_group_unified_id))
-##    error_message = "The group ID must start with '/groups/' followed by a valid UUID (e.g., /groups/3c318d10-76b5-4c4b-8c8d-5b56e3abf44d)."
-##  }
-##  validation {
-##    condition     = length(var.entra_group_unified_id) > 0
-##    error_message = "The variable location cannot be blank."
-##  }
+  ##  validation {
+  ##    condition     = can(regex("^/groups/([a-fA-F0-9]{8}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{4}\\-[a-fA-F0-9]{12})$", var.entra_group_unified_id))
+  ##    error_message = "The group ID must start with '/groups/' followed by a valid UUID (e.g., /groups/3c318d10-76b5-4c4b-8c8d-5b56e3abf44d)."
+  ##  }
+  ##  validation {
+  ##    condition     = length(var.entra_group_unified_id) > 0
+  ##    error_message = "The variable location cannot be blank."
+  ##  }
 }
 variable "entra_group_pag_id" {
   description = <<CONTENT
