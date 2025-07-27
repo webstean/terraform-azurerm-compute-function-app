@@ -10,9 +10,6 @@ module "application-landing-zone-setup" {
   source  = "webstean/application-landing-zone-setup/azurerm"
   version = "~>0.0, < 1.0"
 
-  ## Identity
-  entra_group_id    = data.azuread_group.cloud_operators.id
-
   ## Naming
   landing_zone_name = "play"
   dns_zone_name     = format("%s.lz.%s", var.landing_zone_name, data.azuread_domains.default.domains[0].domain_name)
