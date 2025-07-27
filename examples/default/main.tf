@@ -73,9 +73,10 @@ module "function_app" {
   version = "~>0.0, < 1.0"
 
   ## Identity
-  entra_group_unified_id      = application-landing-zone.azuread_group.entra_group_unified_id
-  entra_group_pag_id          = application-landing-zone.azuread_group.entra_group_pag_id
-  user_assigned_identity_name = application-landing-zone.module.application-landing-zone.user_assigned_identity_name
+  entra_group_unified_id                   = module.application-landing-zone.azuread_group.entra_group_unified_id
+  entra_group_pag_id                       = module.application-landing-zone.azuread_group.entra_group_pag_id
+  user_assigned_identity_graph_name        = module.application-landing-zone.user_assigned_identity_graph_name
+  user_assigned_identity_landing_zone_name = module.application-landing-zone.user_assigned_identity_landing_zone_name
   
   ## Naming
   landing_zone_name   = module.application-landing-zone.landing_zone_name
