@@ -77,8 +77,10 @@ module "function_app" {
   location_key        = "australiaeast" ## other supported options are: australiasoutheast, australiacentral
   private_endpoints_always_deployed = false ## other option is: true
   ## these are just use for the tags to be applied to each resource
-  owner               = "tbd"           ## freeform text, but should be a person or team, email address is ideal
-  cost_centre         = "unknown"       ## from the accountants, its the owner's cost centre
+  owner_service        = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  owner_tech           = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  cost_centre          = "unknown"                    ## from the accountants, its the owner's cost centre. Freeform text
+  monitoring           = "not-monitored"              ## other options are: 24-7 or 8-5
   ##
   subscription_id     = data.azurerm_client_config.current.subscription_id
 
