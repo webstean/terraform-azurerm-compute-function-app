@@ -44,9 +44,6 @@ module "application-landing-zone" {
   source  = "webstean/application-landing-zone/azurerm"
   version = "~>0.0, < 1.0"
 
-  ## Identity
-  entra_group_id    = data.azuread_group.cloud_operators.id
-
   ## Naming
   landing_zone_name = "play"
   dns_zone_name     = format("%s.lz.%s", var.landing_zone_name, data.azuread_domains.default.domains[0].domain_name)
@@ -76,8 +73,9 @@ module "function_app" {
   version = "~>0.0, < 1.0"
 
   ## Identity
-  entra_group_id      = azuread_group.cloud_operators.id
-  user_managed_id     = module.application-landing-zone.user_managed_id
+  entra_group_unified_id      = application-landing-zone.azuread_group.entra_group_unified_id
+  entra_group_pag_id          = application-landing-zone.azuread_group.entra_group_pag_id
+  user_assigned_identity_name = application-landing-zone.module.application-landing-zone.user_assigned_identity_name
   
   ## Naming
   landing_zone_name   = module.application-landing-zone.landing_zone_name
@@ -92,7 +90,7 @@ module "function_app" {
   ## Location
   subscription_id     = module.application-landing-zone.subscription_id
   location_key        = module.application-landing-zone-name.location_key
-  resource_group_name = module.application-landing-zone.resource_group_name // use the one supplied by the landing zone, or create you own
+  resource_group_name = module.application-landing-zone.resource_group_name // use the one supplied by the application landing zone, or use another (but it needs to exist, it can't be creatred here)
 
   ## Tags
   owner               = module.application-landing-zone.owner
