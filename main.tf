@@ -10,8 +10,12 @@ data "azuread_group" "this" {
   object_id = startswith(var.entra_group_pag_id, "/groups/") ? substr(var.entra_group_pag_id, 8, -1) : var.entra_group_pag_id
 }
 
-data "azurerm_user_assigned_identity" "this" {
-  name                = var.user_assigned_identity_name
+data "azurerm_user_assigned_identity" "graph" {
+  name                = var.user_assigned_identity_graph_name
+  resource_group_name = var.resource_group_name
+}
+data "azurerm_user_assigned_identity" "lz" {
+  name                = var.user_assigned_identity_landing_zone_name
   resource_group_name = var.resource_group_name
 }
 
