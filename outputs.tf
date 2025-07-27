@@ -69,11 +69,17 @@ CONTENT
   value       = var.private_endpoints_always_deployed
 }
 
-output "owner" {
+output "owner_tech" {
   description = <<CONTENT
 The name (preferably email address) of the resource owner for contacting in a disaster or seeking guiandance
 CONTENT
-  value       = var.owner
+  value       = var.owner_tech
+}
+output "owner_service" {
+  description = <<CONTENT
+The name (preferably email address) of the resource owner for contacting in a disaster or seeking guiandance
+CONTENT
+  value       = var.owner_service
 }
 
 output "monitoring" {
