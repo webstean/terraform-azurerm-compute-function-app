@@ -28,10 +28,10 @@ module "application-landing-zone-setup" {
   phi_data                          = "no"            ## other option is: unknown, yes. If yes, a whole bunch of security features will be turned on ($$)
 
   ## Tags
-  owner_service                     = "tbd"           ## freeform text, business owner  - email address
-  owner_tech                        = "tbd"           ## freeform text, technlogy owner - email address, this where alerts will go  
-  cost_centre                       = "unknown"       ## from the accountants, its the owner's cost centre. Freeform text
-  monitoring                        = "not-monitored" ## other options are: 24-7 or 8-5
+  owner_service        = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  owner_tech           = "unknown@myorg.com"          ## business owner  - email address, used for visbility & alerts
+  cost_centre          = "unknown"                    ## from the accountants, its the owner's cost centre. Freeform text
+  monitoring           = "not-monitored"              ## other options are: 24-7 or 8-5
 }
 
 ## Create an application landing zone, consisting of the following resources
