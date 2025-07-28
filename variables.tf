@@ -47,6 +47,7 @@ variable "enable_telemetry" {
   type        = bool
   sensitive   = false
   default     = false
+  nullable    = false
   description = <<DESCRIPTION
 This variable controls whether or not Microsoft telemetry is enabled for the AVM modules, that this module will ultimately call.
 For more information see https://aka.ms/avm/telemetryinfo.
