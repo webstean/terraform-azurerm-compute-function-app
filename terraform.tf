@@ -42,6 +42,18 @@ terraform {
 }
 
 provider "alz" {
+  library_overwrite_enabled = true
+  library_references = [
+    {
+      path = "platform/alz",
+      ref  = "latest"
+      #ref  = "2025.02.0"
+    },
+    {
+      custom_url = "${path.root}/lib"
+    }
+  ]
+
   ## Configuration options
   use_oidc = true
   use_msi  = false
