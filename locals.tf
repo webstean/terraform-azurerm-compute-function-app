@@ -12,30 +12,30 @@ locals {
 
 locals {
   ## https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints
-  storage_private_endpoints      = toset(["blob", "dfs", "file", "queue", "table", "web"])
+  storage_private_endpoints = toset(["blob", "dfs", "file", "queue", "table", "web"])
 }
 
 locals {
   default_cors = {
-      allowed_methods = [
-        "*",
-      ],
-      allowed_origins = [
-#        "https://${data.azuread_domains.root.domains.0.domain_name}",
-#        "https://*.${var.dns_zone_name}",
-        "https://*.powerapps.com",
-        "https://*.powerautomate.com",
-        "https://*.azure.com",
-      ],
+    allowed_methods = [
+      "*",
+    ],
+    allowed_origins = [
+      #        "https://${data.azuread_domains.root.domains.0.domain_name}",
+      #        "https://*.${var.dns_zone_name}",
+      "https://*.powerapps.com",
+      "https://*.powerautomate.com",
+      "https://*.azure.com",
+    ],
   }
   secure_cors = {
-      allowed_methods = [
-        "*",
-      ],
-      allowed_origins = [
-        "https://${data.azuread_domains.root.domains.0.domain_name}",
-        "https://*.${var.dns_zone_name}",
-      ],
+    allowed_methods = [
+      "*",
+    ],
+    allowed_origins = [
+      "https://${data.azuread_domains.root.domains.0.domain_name}",
+      "https://*.${var.dns_zone_name}",
+    ],
   }
 }
 
