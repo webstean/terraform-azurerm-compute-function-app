@@ -1,3 +1,9 @@
+##management group
+data "azurerm_management_group" "root" {
+  display_name = "Tenant Root Group"
+}
+
+
 ##azurerm
 data "azurerm_client_config" "current" {}
 data "azurerm_subscription" "current" {}
